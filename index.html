@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound X</title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        color: #4caf50;
+        margin-bottom: 10px;
+      }
+      p {
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .box {
+        height: 200px;
+        width: 100%;
+        background-color: #e4e4e4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #e4e4e4;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .box:hover {
+        border: 2px solid #4caf50;
+        transition: all 0.2s ease-out;
+        cursor: pointer;
+      }
+      .box > a {
+        text-decoration: none;
+        color: #333;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 600;
+      }
+      footer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+      }
+      p > a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Compound X!</h1>
+    <p>
+      Your one-stop hub for a variety of useful web tools designed to simplify
+      tasks and boost productivity.
+    </p>
+
+    <div class="container"></div>
+
+    <footer>
+      <p>
+        &copy; <span id="currentYear"></span>
+        <a href="https://github.com/compound-x" target="_blank">Compound X</a>.
+      </p>
+    </footer>
+  </body>
+
+  <script>
+    document.getElementById("currentYear").innerText = new Date().getFullYear();
+
+    const items = [
+      {
+        title: "Audiobook Playback Time Calculator",
+        href: "https://audiobook-playback-time-calculator.netlify.app/",
+      },
+      {
+        title: "Slugify Tool",
+        href: "https://slugify-tool.netlify.app/",
+      },
+      {
+        title: "Text Case Converter Tool",
+        href: "https://text-case-converter-tool.netlify.app/",
+      },
+    ];
+
+    items.forEach((item) => {
+      const box = document.createElement("div");
+      box.classList.add("box");
+      box.innerHTML = `
+        <a href="${item.href}" target="_blank">
+          ${item.title}
+        </a>
+      `;
+      document.querySelector(".container").appendChild(box);
+    });
+  </script>
+</html>

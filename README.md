@@ -1,1 +1,1 @@
-# compound-x
+# Compound X
