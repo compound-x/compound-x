@@ -45,12 +45,15 @@
         transition: all 0.2s ease-out;
         cursor: pointer;
       }
-      .box > a {
+      .box > p {
         text-decoration: none;
         color: #333;
         font-size: 20px;
         text-align: center;
         font-weight: 600;
+      }
+      a {
+        text-decoration: none;
       }
       footer {
         position: fixed;
@@ -103,15 +106,19 @@
       },
     ];
 
+    const container = document.querySelector(".container");
+
     items.forEach((item) => {
+      const link = document.createElement("a");
+      link.href = item.href;
+      link.target = "_blank";
+
       const box = document.createElement("div");
       box.classList.add("box");
-      box.innerHTML = `
-        <a href="${item.href}" target="_blank">
-          ${item.title}
-        </a>
-      `;
-      document.querySelector(".container").appendChild(box);
+      box.innerHTML = `<p>${item.title}</p>`;
+
+      link.appendChild(box);
+      container.appendChild(link);
     });
   </script>
 </html>
